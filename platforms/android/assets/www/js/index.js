@@ -47,3 +47,17 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+
+app.initialize();
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+    var network = navigator.connection.type;
+    var state = {}; //empty array
+
+    state[Connection.UNKNOWN] = "Unknown Connection";
+    state[Connection.WIFI] = "Wi-fi connection";
+
+    alert("Connected - " + state[network]);
+}
